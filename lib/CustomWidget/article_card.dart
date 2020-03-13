@@ -95,63 +95,58 @@ class ArticleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: SizedBox(
-        height: 100,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            AspectRatio(
-              aspectRatio: 1.0,
-              child: thumbnail,
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 0.0, 2.0, 0.0),
-                child: _ArticleDescription(
-                  title: title,
-                  subtitle: subtitle,
-                  author: author,
-                  publishDate: publishDate,
-                  readDuration: readDuration,
-                ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          AspectRatio(
+            aspectRatio: 1.0,
+            child: thumbnail,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20.0, 0.0, 2.0, 0.0),
+              child: _ArticleDescription(
+                title: title,
+                subtitle: subtitle,
+                author: author,
+                publishDate: publishDate,
+                readDuration: readDuration,
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
 }
 
-// ...
-
-Widget build(BuildContext context) {
-  return ListView(
-    padding: const EdgeInsets.all(10.0),
-    children: <Widget>[
-      ArticleCard(
-        thumbnail: Container(
-          decoration: const BoxDecoration(color: Colors.pink),
-        ),
-        title: 'Flutter 1.0 Launch',
-        subtitle: 'Flutter continues to improve and expand its horizons.'
-            'This text should max out at two lines and clip',
-        author: 'Dash',
-        publishDate: 'Dec 28',
-        readDuration: '5 mins',
-      ),
-      ArticleCard(
-        thumbnail: Container(
-          decoration: const BoxDecoration(color: Colors.blue),
-        ),
-        title: 'Flutter 1.2 Release - Continual updates to the framework',
-        subtitle: 'Flutter once again improves and makes updates.',
-        author: 'Flutter',
-        publishDate: 'Feb 26',
-        readDuration: '12 mins',
-      ),
-    ],
-  );
-}
+//Widget build(BuildContext context) {
+//  return ListView(
+//    padding: const EdgeInsets.all(10.0),
+//    children: <Widget>[
+//      ArticleCard(
+//        thumbnail: Container(
+//          decoration: const BoxDecoration(color: Colors.pink),
+//        ),
+//        title: 'Flutter 1.0 Launch',
+//        subtitle: 'Flutter continues to improve and expand its horizons.'
+//            'This text should max out at two lines and clip',
+//        author: 'Dash',
+//        publishDate: 'Dec 28',
+//        readDuration: '5 mins',
+//      ),
+//      ArticleCard(
+//        thumbnail: Container(
+//          decoration: const BoxDecoration(color: Colors.blue),
+//        ),
+//        title: 'Flutter 1.2 Release - Continual updates to the framework',
+//        subtitle: 'Flutter once again improves and makes updates.',
+//        author: 'Flutter',
+//        publishDate: 'Feb 26',
+//        readDuration: '12 mins',
+//      ),
+//    ],
+//  );
+//}

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         ),
         body: ListView(
           padding: const EdgeInsets.all(8.0),
-          itemExtent: 110.0, // each item height from each other
+          itemExtent: 120.0, // each item height from each other
           children: [
             YoutubeListItem(
               user: 'Flutter',
@@ -30,13 +30,26 @@ class MyApp extends StatelessWidget {
             ),
             ArticleCard(
               thumbnail: Container(
-                decoration: const BoxDecoration(color: Colors.red),
+                decoration: const BoxDecoration(color: Colors.pink),
               ),
               title: 'Flutter 1.2 Release - Continual updates to the framework',
-              subtitle: 'Flutter once again improves and makes updates.',
-              author: 'Flutter',
-              publishDate: 'Feb 26',
-              readDuration: '12 mins',
+              subtitle: 'Flutter continues to improve and expand its horizons.'
+                  'This text should max out at two lines and clip',
+              author: 'Dash',
+              publishDate: 'Dec 28',
+              readDuration: '5 mins',
+            ),
+            UserCard(
+//              thumbnail: Container(
+//                decoration: const BoxDecoration(color: Colors.blueGrey),
+//              ),
+              title: 'John Doe',
+              subtitle1:
+                  'Squad abecede /Users/admin1/Development/IdeaProjects/my_custom_widget/lib/main.dart',
+              subtitle2: 'regiment 123',
+              subtitle3:
+                  '/Users/admin1/Development/IdeaProjects/my_custom_widget/lib/main.dart',
+              status: true,
             ),
           ],
         ),
