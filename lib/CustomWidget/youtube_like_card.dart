@@ -94,6 +94,7 @@ class YoutubeListExample extends StatelessWidget {
       drawer: MyDrawer(),
       body: SafeArea(
         top: false,
+        bottom: false,
         child: CustomScrollView(
           physics: BouncingScrollPhysics(),
           slivers: <Widget>[
