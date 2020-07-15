@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_custom_widget/widget/my_drawer.dart';
 
 class _ArticleDescription extends StatelessWidget {
   _ArticleDescription({
@@ -123,31 +124,53 @@ class ArticleCard extends StatelessWidget {
   }
 }
 
-//Widget build(BuildContext context) {
-//  return ListView(
-//    padding: const EdgeInsets.all(10.0),
-//    children: <Widget>[
-//      ArticleCard(
-//        thumbnail: Container(
-//          decoration: const BoxDecoration(color: Colors.pink),
-//        ),
-//        title: 'Flutter 1.0 Launch',
-//        subtitle: 'Flutter continues to improve and expand its horizons.'
-//            'This text should max out at two lines and clip',
-//        author: 'Dash',
-//        publishDate: 'Dec 28',
-//        readDuration: '5 mins',
-//      ),
-//      ArticleCard(
-//        thumbnail: Container(
-//          decoration: const BoxDecoration(color: Colors.blue),
-//        ),
-//        title: 'Flutter 1.2 Release - Continual updates to the framework',
-//        subtitle: 'Flutter once again improves and makes updates.',
-//        author: 'Flutter',
-//        publishDate: 'Feb 26',
-//        readDuration: '12 mins',
-//      ),
-//    ],
-//  );
-//}
+class ArticleCardExample extends StatelessWidget {
+  static final route = '/ArticleCardExample';
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: MyDrawer(),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            title: Text('Article Card Example'),
+            floating: true,
+            pinned: true,
+          ),
+          SliverPadding(
+            padding: EdgeInsets.only(left: 8, right: 8),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  ArticleCard(
+                    thumbnail: Container(
+                      decoration: const BoxDecoration(color: Colors.pink),
+                    ),
+                    title: 'Flutter 1.0 Launch',
+                    subtitle:
+                        'Flutter continues to improve and expand its horizons.'
+                        'This text should max out at two lines and clip',
+                    author: 'Dash',
+                    publishDate: 'Dec 28',
+                    readDuration: '5 mins',
+                  ),
+                  ArticleCard(
+                    thumbnail: Container(
+                      decoration: const BoxDecoration(color: Colors.blue),
+                    ),
+                    title:
+                        'Flutter 1.2 Release - Continual updates to the framework',
+                    subtitle: 'Flutter once again improves and makes updates.',
+                    author: 'Flutter',
+                    publishDate: 'Feb 26',
+                    readDuration: '12 mins',
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_custom_widget/widget/my_drawer.dart';
 
 class UserCard extends StatelessWidget {
   final Widget thumbnail, trailing;
@@ -84,6 +84,78 @@ class UserCard extends StatelessWidget {
               ),
             ),
             trailing ?? SizedBox(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class UserCardExample extends StatelessWidget {
+  static final route = '/UserCardExample';
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: MyDrawer(),
+      body: SafeArea(
+        top: false,
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              bottom: PreferredSize(
+                preferredSize: Size.fromHeight(50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    RaisedButton(
+                      onPressed: () {},
+                      color: Colors.white70,
+                      child: Text("btn1"),
+                    ),
+                    RaisedButton(
+                      onPressed: () {},
+                      color: Colors.white70,
+                      child: Text("btn2"),
+                    ),
+                  ],
+                ),
+              ),
+              title: Text('User Card Example'),
+              backgroundColor: Colors.black87,
+//              expandedHeight: 200.0,
+              snap: true,
+              floating: true,
+              pinned: true,
+            ),
+            SliverPadding(
+              padding: EdgeInsets.all(8),
+              sliver: SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    return UserCard(
+                      thumbnail: Container(
+                        color: Colors.blueGrey[100 * (index % 9)],
+                      ),
+                      title: 'John Doe',
+                      subtitle1: 'my_custom_widget/lib/main.dart',
+//              subtitle2: 'regiment 123',
+                      subtitle3: '$index',
+                      trailing: CircleAvatar(
+                        backgroundColor:
+                            index % 3 == 0 ? Colors.green : Colors.red,
+                        radius: 30,
+                        child: Icon(
+                          index % 3 == 0 ? Icons.check : Icons.clear,
+                          size: 40,
+                          color: Colors.white,
+                        ),
+                      ),
+                    );
+                  },
+                  childCount: 9,
+                ),
+              ),
+            ),
           ],
         ),
       ),
