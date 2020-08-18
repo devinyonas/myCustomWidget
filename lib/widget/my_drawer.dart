@@ -20,45 +20,66 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: CustomScrollView(
-        slivers: <Widget>[
-          SliverList(
-            delegate: SliverChildListDelegate([
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: CachedNetworkImageProvider(
-                      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-                    ),
-                  ),
+      child: Column(
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: CachedNetworkImageProvider(
+                  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
                 ),
               ),
-              ListTile(
-                title: Text("Flutter Youtube List"),
-                onTap: () {
-                  NavigatorPopPushRoute(context, YoutubeListExample.route);
-                },
-              ),
-              ListTile(
-                title: Text("Article Card"),
-                onTap: () {
-                  NavigatorPopPushRoute(context, ArticleCardExample.route);
-                },
-              ),
-              ListTile(
-                title: Text("Comment Widget"),
-                onTap: () {
-                  NavigatorPopPushRoute(context, CommentExample.route);
-                },
-              ),
-              ListTile(
-                title: Text("User Card"),
-                onTap: () {
-                  NavigatorPopPushRoute(context, UserCardExample.route);
-                },
-              ),
-            ]),
+            ),
+          ),
+          Expanded(
+            child: CustomScrollView(
+              slivers: <Widget>[
+                SliverList(
+                  delegate: SliverChildListDelegate([
+                    ListTile(
+                      title: Text("Flutter Youtube List"),
+                      onTap: () {
+                        NavigatorPopPushRoute(
+                            context, YoutubeListExample.route);
+                      },
+                    ),
+                    ListTile(
+                      title: Text("Article Card"),
+                      onTap: () {
+                        NavigatorPopPushRoute(
+                            context, ArticleCardExample.route);
+                      },
+                    ),
+                    ListTile(
+                      title: Text("Comment Widget"),
+                      onTap: () {
+                        NavigatorPopPushRoute(context, CommentExample.route);
+                      },
+                    ),
+                    ListTile(
+                      title: Text("User Card"),
+                      onTap: () {
+                        NavigatorPopPushRoute(context, UserCardExample.route);
+                      },
+                    ),
+                    ListTile(
+                      title: Text("FormBuilder Example"),
+                      onTap: () {
+                        NavigatorPopPushRoute(
+                            context, FormBuilderExample.route);
+                      },
+                    ),
+                    ListTile(
+                      title: Text("Shimmer Loading List Example"),
+                      onTap: () {
+                        NavigatorPopPushRoute(context, LoadingListPage.route);
+                      },
+                    ),
+                  ]),
+                ),
+              ],
+            ),
           ),
         ],
       ),

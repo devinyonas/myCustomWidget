@@ -129,7 +129,7 @@ class YoutubeListExample extends StatelessWidget {
                       user: 'Flutter',
                       viewCount: 9000 * (index % 9),
                       thumbnail: Container(
-                        color: Colors.blue[100 * (index % 9)],
+                        color: Colors.green[100 * (index % 9)],
                       ),
                       title: 'The Flutter YouTube Channel',
                     );

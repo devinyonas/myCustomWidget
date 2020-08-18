@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:my_custom_widget/CustomWidget/FormBuilderExample.dart';
 import 'package:my_custom_widget/CustomWidget/all_custom_widget.dart';
 
 void main() => runApp(new MaterialApp(home: new MyApp()));
@@ -12,9 +14,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    var brightness = SchedulerBinding.instance.window.platformBrightness;
+    print(brightness);
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.light(),
+      theme:
+          brightness == Brightness.dark ? ThemeData.dark() : ThemeData.light(),
       initialRoute: YoutubeListExample.route,
       routes: <String, WidgetBuilder>{
         YoutubeListExample.route: (BuildContext context) =>
@@ -23,6 +28,9 @@ class _MyAppState extends State<MyApp> {
             new ArticleCardExample(),
         CommentExample.route: (BuildContext context) => new CommentExample(),
         UserCardExample.route: (BuildContext context) => new UserCardExample(),
+        LoadingListPage.route: (BuildContext context) => new LoadingListPage(),
+        FormBuilderExample.route: (BuildContext context) =>
+            new FormBuilderExample(),
       },
     );
   }
