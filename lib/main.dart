@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:get/get.dart';
 import 'package:my_custom_widget/CustomWidget/FormBuilderExample.dart';
 import 'package:my_custom_widget/CustomWidget/all_custom_widget.dart';
 
@@ -16,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     var brightness = SchedulerBinding.instance.window.platformBrightness;
     print(brightness);
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme:
           brightness == Brightness.dark ? ThemeData.dark() : ThemeData.light(),
@@ -29,8 +30,10 @@ class _MyAppState extends State<MyApp> {
         CommentExample.route: (BuildContext context) => new CommentExample(),
         UserCardExample.route: (BuildContext context) => new UserCardExample(),
         LoadingListPage.route: (BuildContext context) => new LoadingListPage(),
-        FormBuilderExample.route: (BuildContext context) =>
-            new FormBuilderExample(),
+        DialogWidgetList.route: (BuildContext context) =>
+            new DialogWidgetList(),
+        // FormBuilderExample.route: (BuildContext context) =>
+        //     new FormBuilderExample(),
       },
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_custom_widget/widget/choice_item_widget.dart';
 import 'package:my_custom_widget/widget/my_drawer.dart';
 
 class YoutubeListItem extends StatelessWidget {
@@ -99,11 +100,11 @@ class YoutubeListExample extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           slivers: <Widget>[
             SliverAppBar(
-              stretch: true,
-              onStretchTrigger: () {
-                print('refresh');
-              },
-//              title: Text('Youtube List Example'),
+              // stretch: true,
+              // onStretchTrigger: () {
+              //   print('refresh');
+              // },
+              // title: Text('Youtube List Example'),
               backgroundColor: Colors.green[400],
               expandedHeight: 200.0,
               floating: true,
@@ -117,6 +118,32 @@ class YoutubeListExample extends StatelessWidget {
                 background: Image.network(
                   'https://images.unsplash.com/photo-1568832359672-e36cf5d74f54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
                   fit: BoxFit.fill,
+                ),
+              ),
+            ),
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: _PersistentHeaderDelegate(
+                extend: 46,
+                child: Container(
+                  color: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: ListView(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      const SizedBox(width: 16),
+                      ...DoctorMainListType.values
+                          .map((type) => ChoiceItemWidget(
+                                title: type.toString(),
+                                isSelected:
+                                    type == DoctorMainListType.outstanding,
+                                onTap: () {},
+                              ))
+                          .toList(),
+                      const SizedBox(width: 16),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -142,5 +169,35 @@ class YoutubeListExample extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+enum DoctorMainListType {
+  outstanding,
+  draft,
+  answered,
+}
+
+class _PersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
+  final Widget child;
+  final double extend;
+
+  _PersistentHeaderDelegate({@required this.child, @required this.extend});
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return child;
+  }
+
+  @override
+  double get maxExtent => extend;
+
+  @override
+  double get minExtent => extend;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }

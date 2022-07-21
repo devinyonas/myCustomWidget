@@ -31,6 +31,7 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
             ),
+            child: SizedBox(),
           ),
           Expanded(
             child: CustomScrollView(
@@ -63,17 +64,23 @@ class MyDrawer extends StatelessWidget {
                         NavigatorPopPushRoute(context, UserCardExample.route);
                       },
                     ),
-                    ListTile(
-                      title: Text("FormBuilder Example"),
-                      onTap: () {
-                        NavigatorPopPushRoute(
-                            context, FormBuilderExample.route);
-                      },
-                    ),
+                    // ListTile(
+                    //   title: Text("FormBuilder Example"),
+                    //   onTap: () {
+                    //     NavigatorPopPushRoute(
+                    //         context, FormBuilderExample.route);
+                    //   },
+                    // ),
                     ListTile(
                       title: Text("Shimmer Loading List Example"),
                       onTap: () {
                         NavigatorPopPushRoute(context, LoadingListPage.route);
+                      },
+                    ),
+                    ListTile(
+                      title: Text("Dialog Widget List"),
+                      onTap: () {
+                        NavigatorPopPushRoute(context, DialogWidgetList.route);
                       },
                     ),
                   ]),

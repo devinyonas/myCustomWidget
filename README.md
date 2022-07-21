@@ -6,6 +6,7 @@
 - Comment tile widget
 - User card widget
 - shimmer loading
+- Photo and Image picker dialog
 
 ## Screenshots
 ![DrawerMenu](https://gitlab.com/devin.yonas/flutter-custom-widget/uploads/15911837cba46f07720285e181937ced/Screen_Shot_2020-07-15_at_17.47.25.png "Drawer Menu")
